@@ -33,6 +33,53 @@
 # into a sorted hand.
 # Hint: Also, remember to use % to get the one's digit, and use //= to get rid of the one's digit.
 
+def handToDice(hand):
+    first = hand // 100
+    second = (hand % 100) // 10
+    third = (hand % 100) % 10
+    return first, second, third
+def diceToOrderedHand(a, b, c):
+    L = max(a,b,c)
+    S = min(a,b,c)
+    M = a + b + c - L - S
+    return L * (10)**2 + M * 10 + S
+def matchNum(hand):
+    digit1, digit2, digit3 = handToDice(hand)
+    if digit1 == digit2 == digit3:
+        return 3
+    elif digit1 != digit2 != digit3:
+        return 1
+    else:
+        return 2
 def playstep2(hand, dice):
-	# your code goes here
-	pass
+    getMatch = matchNum(hand)
+
+    a, b, c = handToDice(hand)
+    orderedHand= diceToOrderedHand(a, b, c)
+    # Case 1
+    if getMatch == 3:
+        return hand, dice
+    # Case 2
+    elif getMatch == 2:
+        num1, num2, num3 = handToDice(orderedHand)
+        # Select the last digit of the dice
+        num4 = dice % 10
+        if num1 == num2:
+            newHand = diceToOrderedHand(num1, num2, num4)
+            return newHand, dice // 10
+
+        elif num1 == num3:
+            newHand = diceToOrderedHand(num1, num3, num4)
+            return newHand, dice // 10
+
+        else:
+            newHand = diceToOrderedHand(num3, num2, num4)
+            return newHand, dice // 10
+    # Case 3
+    else:
+        num1, num2, num3 = handToDice(orderedHand)
+        secondHalf = dice % 100
+        t1, t2, t3 = handToDice(num1 * 100 + secondHalf)
+        new_hand = diceToOrderedHand(t1, t2, t3)
+
+        return new_hand, dice // 100
