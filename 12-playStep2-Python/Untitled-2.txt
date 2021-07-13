@@ -1,0 +1,4 @@
+
+n = list[]
+list.sort()
+print(n)
