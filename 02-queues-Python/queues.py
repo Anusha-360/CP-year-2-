@@ -5,14 +5,13 @@ few lines as possible.
 Make sure you pass the test cases too!"""
 
 class Queue:
-    def __init__(self, head=None):
+    def __init__(self, head=None): 
         self.storage = [head]
 
     def enqueue(self, new_element):
-        pass
+        self.storage.append(new_element) #adding new element at the tail of the queue
 
     def peek(self):
-        pass 
-
+        return self.storage[0]  #returing the top element with out deleting it fron the queue
     def dequeue(self):
-        pass
+        return self.storage.pop(0)  #it delete the top element
