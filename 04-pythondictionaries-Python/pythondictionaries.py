@@ -41,7 +41,7 @@ def sortUSA():
 
 def alphaAsia():
     '''Return all the cities in Asia continent in alphabetical order'''
-    #sort cities according in asia1
+    #sort cities according in asia12
     list1=locations['Asia']
     print(list1)
     s=''    
