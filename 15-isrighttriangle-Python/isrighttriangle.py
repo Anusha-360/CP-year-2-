@@ -6,5 +6,10 @@
 # almostEqual (instead of ==) when comparing floats.
 
 def isrighttriangle(x1, y1, x2, y2, x3, y3):
-	# your code goes here
-	pass
+    l=(int(pow((x2-x1),2)) + int(pow((y2-y1),2)))  #distance
+    m=(int(pow((x3-x2),2)) + int(pow((y3-y2),2)))
+    n=(int(pow((x3-x1),2)) + int(pow((y3-y1),2)))
+    if ((l>0 and m>0 and n>0) and (l == (m+n) or m == (l+n) or n == (l+m))): #one side equal to other two sides
+        return True
+    else:
+        return False
