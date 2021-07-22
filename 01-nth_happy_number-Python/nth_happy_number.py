@@ -14,6 +14,22 @@
 # assert(nth_happy_number(7) == 28)
 # assert(nth_happy_number(8) == 31)
 
-
+def Happynum(n):
+    sum = 0
+    while(n!=0):
+        sum += (n%10)**2
+        n//=10
+    if sum == 1:
+        return True
+    elif sum<10:
+        return False
+    else:
+        return Happynum(sum)
 def nth_happy_number(n):
-	return 0
+    found = 1
+    guess = 0
+    while(found<=abs(n)):
+        guess+=1
+        if(Happynum(guess)):
+            found+=1
+    return guess
