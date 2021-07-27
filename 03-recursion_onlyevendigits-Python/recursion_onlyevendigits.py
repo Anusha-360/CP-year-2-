@@ -8,5 +8,34 @@
 # Also the function returns the empty list if the original list is empty. 
 # Remember to not use strings. You may not use loops/iteration in this problem.
 
-def fun_recursion_onlyevendigits(l): 
-		return []
+def readList():
+    a = []
+    for i in range(l):
+        a.append(int(input()))
+    return a
+def convertEven(num, sum = 0):
+    if num == 0:
+        return sum
+    else:
+        if (num%10)%2 == 0:
+            return convertEven(num//10, sum = sum*10+num%10)
+        else:
+            return convertEven(num//10, sum)
+def prepareList(L, pos):
+    if len(L) == pos:
+        return L
+    else:
+        val = L[pos]
+        L[pos] = reverseNum(convertEven(val))
+        return prepareList(L, pos+1)
+# num = (convertEven(num))
+def reverseNum(num, sum = 0):
+    if num == 0:
+        return sum
+    else:
+        return reverseNum(num//10, sum = sum*10+num%10)
+def fun_recursion_onlyevendigits(l):
+    # your code goes here
+    if len(l) == 0:
+        return l
+    return prepareList(l, 0)
