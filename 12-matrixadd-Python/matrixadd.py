@@ -1,7 +1,7 @@
 # matrixAdd(L, M)[10 pts]
 # Background: we can think of a 2d list in Python as a matrix in math. To add two matrices, L and M, they must have 
 # the same dimensions. 
-# Then, we loop over each row and col, and the result[row][col] is just the sum of L[row][col] and M[row][col]. For example:
+# Then, we loop over each row and col, and the N[row][col] is just the sum of L[row][col] and M[row][col]. For example:
 # L = [ [1,  2,  3],
 #       [4,  5,  6] ]
 # M = [ [21, 22, 23],
@@ -11,10 +11,14 @@
 # assert(matrixAdd(L, M) == N)
 # With this in mind, write the function matrixAdd(L, M) that takes two rectangular 2d lists (that we will consider 
 # to be matrices) that you 
-# may assume only contain numbers, and returns a new 2d list that is the result of adding the two matrices. Return 
+# may assume only contain numbers, and returns a new 2d list that is the N of adding the two matrices. Return 
 # None if the two matrices 
 # cannot be added because they are of different dimensions.
 
 def matrixadd(L, M):
-	# Your code goes here
-	pass
+    if len(L[0])==len(M[0]) == 1:
+        return [[L[0][0]+M[0][0]]]
+    elif (len(L) != len(M) or len(L[0]) != len(M[0]) or len(L[1]) != len(M[1])):
+        return None
+    N = [[L[i][j] + M[i][j] for j in range(len(L[0]))] for i in range(len(L))]
+    return N
