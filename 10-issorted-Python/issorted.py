@@ -6,5 +6,10 @@
 # the list.
 
 def issorted(a):
-	# your code goes here
-	pass
+    	# your code goes here
+	if(a == sorted(a)):   #ascending
+		return True
+	if (a == sorted(a, reverse = True)):  #descending
+			return True
+	else:
+		return False
