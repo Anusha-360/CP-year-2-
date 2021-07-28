@@ -8,7 +8,6 @@
 
 
 
-
+from functools import reduce
 def fun_getaverage(s): 
-	return 0.0
-
+     return reduce(lambda a, b: a + b, s) / len(s)
