@@ -5,65 +5,37 @@
 # For example:- 36 is l powerful number. It is divisible by both 3 and square of 3 i.e, 9.
 
 import math
+def getPrimeFactors(n):
+    i = 2
+    prime_factors = []
+    while i*i <= n:
+        if n%i == 0:
+            prime_factors.append(i)
+            n //= i
+        else:
+            i += 1
+    
+    if n>1:
+        prime_factors.append(n)
+    
+    return prime_factors
+
+def isPowerfulNo(n):
+    # get prime factors
+    prime_factors = getPrimeFactors(n)
+    
+    # filter to get unique prime factors
+    unique_prime_factors = set(prime_factors)
+    for p in unique_prime_factors:
+        if n % p != 0 or n % (p*p) != 0:
+            return False
+    return True
 
 def nthpowerfulnumber(n):
-    	# Your code goes here
-    f = 0
-    g = 0
-    while (f <= abs(n)):
-        g += 1
-        if(isPowerful(g)):
-            f += 1
-    return g
- 
-# function to check if
-# the number is powerful
-def isPowerful(n):
- 
-    # First divide the number repeatedly by 2
-    while (n % 2 == 0):
- 
-        power = 0
-        while (n % 2 == 0):
-         
-            n = n//2
-            power = power + 1
-         
-          
-        # If only 2 ^ 1 divides
-        # n (not higher powers),
-        # then return false
-        if (power == 1):
-            return False
-     
-  
-    # if n is not a power of 2
-    # then this loop will execute
-    # repeat above process
-    for factor in range(3, int(math.sqrt(n))+1, 2):
-     
-        # Find highest power of
-        # "factor" that divides n
-        power = 0
-        while (n % factor == 0):
-         
-            n = n//factor
-            power = power + 1
-         
-  
-        # If only factor ^ 1 divides
-        # n (not higher powers),
-        # then return false
-        if (power == 1):
-            return False
-     
-  
-     # n must be 1 now if it
-     # is not a prime numenr.
-     # Since prime numbers are
-     # not powerful, we return
-     # false if n is not 1.
-    return (n == 1)
-
-
-#print(nthPowerfulNumber(int(input())))
+	x=0
+	y=0
+	while(x<=abs(n)):
+		y+=1
+		if(isPowerfulNo(y)):
+			x+=1
+	return y
