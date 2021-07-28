@@ -26,10 +26,10 @@ def Happynum(n):
     else:
         return Happynum(sum)
 def nth_happy_number(n):
-    found = 1
-    guess = 0
-    while(found<=abs(n)):
-        guess+=1
-        if(Happynum(guess)):
-            found+=1
-    return guess
+    f = 1
+    g = 0
+    while(f<=abs(n)):
+        g+=1
+        if(Happynum(g)):
+            f+=1
+    return g
