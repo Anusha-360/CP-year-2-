@@ -5,4 +5,12 @@
 
 
 def fun_recursions_alternatingsum(l): 
-	return 0
+    tot = 0
+    for i, value in enumerate(l):
+        if i % 2 == 0:
+            tot = tot + value
+        else:
+            tot = tot - value
+    return tot
+
+	
