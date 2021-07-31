@@ -7,7 +7,15 @@
 # strings and averages 13 and 14 to return 13.5. Also, getAverage('a,b,c') returns 0.
 
 
-
-from functools import reduce
-def fun_getaverage(s): 
-     return reduce(lambda a, b: a + b, s) / len(s)
+def fun_getaverage(s):
+     s = s.split(",")
+     num = []
+     for i in s:
+          if(i.isdigit()):
+               num.append(i)
+     if len(num) == 0:
+          return 0
+     else:
+          for i in range(0, len(num)):
+               num[i] = int(num[i])
+          return(sum(num)/len(num))
