@@ -17,26 +17,27 @@
 #     assert(binarySearchValues(L, v) == [(2,'f'), (0,'L'), (1,'c')])
 # Hint: Do not slice the list L, but rather adjust the indexes into L. 
 
-def readList():
-		return input().split(" ")
-
-def binarySearch(L, v, low, high, result = []):
-	mid = (low + high) // 2
-	if low < high and L[mid] == v:
-		result.append((mid, L[mid]))
-		return result
-	elif low == high:
-		result.append((mid, L[mid]))
-		return result
-	elif (v < L[mid]):
-		result.append((mid, L[mid]))
-		high = mid - 1
-	else:
-		result.append((mid, L[mid]))
-		low = mid + 1
-	return binarySearch(L, v, low, high, result)
-
-
 def recursion_binarysearchvalues(L, v):
-	result = binarySearch(L, v, 0, len(L)-1)
-	return result
+    	#creating an extra function
+    def binarySearch (L, start, max, v):   
+        if max >= start:      
+            mid = start + (max - start) // 2        
+            if L[mid] == v:                
+                list.append((mid,L[mid]))
+              
+            elif L[mid] > v:
+				#recursive call if value less than mid
+                list.append((mid,L[mid]))                
+                return binarySearch(L, start, mid-1, v)
+      
+            else:
+				#recursive call if value greater than mid
+                list.append((mid,L[mid]))
+                # print("here",list)
+                return binarySearch(L, mid + 1, max, v)
+        return list
+  
+ #creating a list to return the uot put
+    list=[]
+	#extracting from list
+    return (binarySearch(L, 0, len(L)-1, v))
