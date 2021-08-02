@@ -13,6 +13,22 @@
 # Again, you do not need to sort the list. We didn't sort it in our sample solution. We just tracked the two largest 
 # values as we recursively traversed the list. Also, you may not use loops/iteration in this problem
 
+
 def recursion_secondlargest(L):
-	# Your code goes here
-	pass
+	k = 2
+	z =len(L)
+	if(z<=1):
+		return None
+	else:
+		return kthmax(k,L)
+def kthmax(k, list):
+	f = max(list)
+	z = list.count(f)
+	if(z>=2):
+		return f
+	if (k == 1):
+		return max(list)
+	else:
+		m = max(list)
+		return(kthmax(k-1, [x for x in list if x != m]))
+		
