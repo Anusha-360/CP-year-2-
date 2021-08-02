@@ -11,7 +11,37 @@
 # Hint: The time complexity can be achieved in Linear.
 
 def areAnagrams(s1, s2):
-    # Your code goes here...
-    pass
+    s1=s1.lower()
+    s2=s2.lower()
+    l1 = len(s1)
+    l2 = len(s2)
+    t=""
+    k=""
+    for i in s1:
+        if(i in t):
+            return True
+        else:
+            t=t+i
+    for i in s2:
+        if(i in t):
+            return True
+        else:
+            k=k+i
+    if(k in t):
+        if(l1==l2):
+            return True
+        else:
+            return False
+    else:
+        return False
 
+# write your test cases here...
+assert(areAnagrams("Aba", "BAA") == True)
+assert(areAnagrams("Listen", "Silent") == True)
+assert(areAnagrams("python", "ythonp") == True)
+assert(areAnagrams("Abc", "def") == False)
+assert(areAnagrams("car", "bike") == False)
+
+
+print ("All test cases passed....")
 # write your test cases here...
