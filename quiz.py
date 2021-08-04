@@ -6,20 +6,36 @@
 
 def bestQuiz(l):
     # Your  code goes ehre...
-    pass
-
-def testBestQuiz():
-    print('Testing bestQuiz()...', end='')
-    a = [ [ 88,  80, 91 ],
-          [ 68, 100, -1 ]]
-    assert(bestQuiz(a) == 2)
-    a = [ [ 88,  80, 80 ],
-          [ 68, 100, 100 ]]
-    assert(bestQuiz(a) == 1)
-    a = [ [88, -1, -1 ],
-          [68, -1, -1 ]]
-    assert(bestQuiz(a) == 0)
-    a = [ [-1, -1, -1 ],
-          [-1, -1, -1 ]]
-    assert(bestQuiz(a) == None)
-    print('All test cases passed...!')
+    ca = 0   #currentaverage
+    ba = 0   #ba
+    n = 0 
+    quiz = None
+    for i in range(len(l[0])): 
+        currentsum = 0
+        n = 0 
+        for j in range(len(l)):
+            if (l[j][i] != -1):
+                n += 1
+                currentsum += l[j][i] 
+        if n > 0:
+            ca = currentsum//n
+            if ca > ba: 
+                ba = ca
+                quiz = i
+    return quiz
+          
+# def testBestQuiz():
+#     print('Testing bestQuiz()...', end='')
+a = [[88,  80, 91],
+     [68, 100, -1]]
+assert(bestQuiz(a) == 2)
+a = [[88,  80, 80],
+     [68, 100, 100]]
+assert(bestQuiz(a) == 1)
+a = [[88, -1, -1],
+     [68, -1, -1]]
+assert(bestQuiz(a) == 0)
+a = [[-1, -1, -1],
+     [-1, -1, -1]]
+assert(bestQuiz(a) == None)
+print('All test cases passed...!')
