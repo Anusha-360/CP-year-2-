@@ -18,4 +18,19 @@
 
 def movieAwards(oscarResults):
     # Your code goes here...
-    pass
+    res = {}
+    for award, movie in oscarResults:
+        count = res.get(movie, 0)+1
+        res[movie] = count
+    return res
+
+k = movieAwards({ 
+    ("Best Picture", "The Shape of Water"), 
+    ("Best Actor", "Darkest Hour"),
+    ("Best Actress", "Three Billboards Outside Ebbing, Missouri"),
+    ("Best Director", "The Shape of Water"),
+    ("Best Supporting Actor", "Three Billboards Outside Ebbing, Missouri"),
+    ("Best Supporting Actress", "I, Tonya"),
+    ("Best Original Score", "The Shape of Water")
+ })
+print(k)
