@@ -42,3 +42,5 @@ class BinaryTree(object):
         print(start.value)
         self.preorder_print(start.left)
         self.preorder_print(start.right)
+        
+#reference: https://github.com/grantgasser/udacity-data-structures-algorithms/blob/master/binarytree.py
