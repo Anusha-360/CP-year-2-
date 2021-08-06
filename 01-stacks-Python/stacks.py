@@ -48,3 +48,4 @@ class stack(object):
         "Pop (remove) the first element off the top of the stack and return it"
         return self.ll.delete_first()
     
+    #reference: https://gist.github.com/halee9/3d8a3e1a7c9e37c2ff9bcdead2c01f53
