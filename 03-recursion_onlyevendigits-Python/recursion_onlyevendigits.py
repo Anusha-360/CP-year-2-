@@ -8,11 +8,7 @@
 # Also the function returns the empty list if the original list is empty. 
 # Remember to not use strings. You may not use loops/iteration in this problem.
 
-def readList():
-    a = []
-    for i in range(l):
-        a.append(int(input()))
-    return a
+
 def convertEven(num, sum = 0):
     if num == 0:
         return sum
