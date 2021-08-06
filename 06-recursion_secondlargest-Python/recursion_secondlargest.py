@@ -32,3 +32,4 @@ def kthmax(k, list):
 		m = max(list)
 		return(kthmax(k-1, [x for x in list if x != m]))
 		
+#reference:from CSPP corse
