@@ -31,3 +31,5 @@ def ismostlymagicsquare(a):
     if(d1!=d2):
         return False
     return True        
+
+#reference: https://www.geeksforgeeks.org/magic-square/
