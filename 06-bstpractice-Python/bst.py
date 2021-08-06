@@ -43,3 +43,5 @@ class BST(object):
             else:
                 self.root = self.root.left
         return False
+    
+#refernce: geeks for geeks
