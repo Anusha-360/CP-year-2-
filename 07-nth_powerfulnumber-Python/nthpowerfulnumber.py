@@ -39,3 +39,5 @@ def nthpowerfulnumber(n):
 		if(isPowerfulNo(y)):
 			x+=1
 	return y
+
+#reference:https://www.geeksforgeeks.org/powerful-number/
