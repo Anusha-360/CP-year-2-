@@ -15,3 +15,5 @@ class Queue:
         return self.storage[0]  #returing the top element with out deleting it fron the queue
     def dequeue(self):
         return self.storage.pop(0)  #it delete the top element
+    
+    #reference: https://jmlb.github.io/coding/2016/12/16/queues/
