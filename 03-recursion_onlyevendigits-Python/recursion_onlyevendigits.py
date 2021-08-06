@@ -9,29 +9,34 @@
 # Remember to not use strings. You may not use loops/iteration in this problem.
 
 
-def convertEven(num, sum = 0):
-    if num == 0:
-        return sum
+def checkEvenDigits(number, newNum=0, powers=1):
+    digit = number % 10
+    if number <= 0:
+        return newNum
     else:
-        if (num%10)%2 == 0:
-            return convertEven(num//10, sum = sum*10+num%10)
+
+        if digit % 2 == 0:
+
+            newNum += digit * powers
+            number //= 10
+
+            powers *= 10
+            return checkEvenDigits(number, newNum, powers)
         else:
-            return convertEven(num//10, sum)
-def prepareList(L, pos):
-    if len(L) == pos:
-        return L
-    else:
-        val = L[pos]
-        L[pos] = reverseNum(convertEven(val))
-        return prepareList(L, pos+1)
-# num = (convertEven(num))
-def reverseNum(num, sum = 0):
-    if num == 0:
-        return sum
-    else:
-        return reverseNum(num//10, sum = sum*10+num%10)
-def fun_recursion_onlyevendigits(l):
-    # your code goes here
-    if len(l) == 0:
+            number //= 10
+            return checkEvenDigits(number, newNum, powers)
+
+
+def fun_recursion_onlyevendigits(l, finl=None, count=0):
+    if finl == None:
+        finl = []
+    if l == [] and count == 0:
         return l
-    return prepareList(l, 0)
+    if len(l) == 0:
+        return finl
+    else:
+        count += 1
+
+        newNum = checkEvenDigits(l[0])
+        finl.append(newNum)
+        return fun_recursion_onlyevendigits(l[1:], finl, count)
