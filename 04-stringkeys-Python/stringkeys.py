@@ -34,3 +34,5 @@ class HashTable(object):
        hash value from a string."""
        hashvalue = ord(string[0])*100 + ord(string[1])
        return hashvalue
+   
+#reference: http://www.openbookproject.net/books/pythonds/SortSearch/Hashing.html
