@@ -34,3 +34,5 @@ def binary_search(input_array, value):
     return -1
 # k = binary_search([1,2,3,4,5], 4)
 # print(k)
+
+#reference: https://github.com/VineetPrasadVerma/Udacity-DataStructures-And-Algorithms-In-Python/blob/master/BinarySearch.py
