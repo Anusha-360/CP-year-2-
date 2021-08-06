@@ -5,12 +5,11 @@
 
 
 def fun_recursions_alternatingsum(l): 
-    tot = 0
-    for i, value in enumerate(l):
-        if i % 2 == 0:
-            tot = tot + value
-        else:
-            tot = tot - value
-    return tot
+    if(len(l) == 0):
+        return 0
+    else:
+        t = l[0]-fun_recursions_alternatingsum(l[1:])
+        return t
+
 
 	#reference: from CSPP corse
