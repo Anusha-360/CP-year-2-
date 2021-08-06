@@ -10,3 +10,5 @@ def handtodice(hand):
     second = (hand % 100) // 10
     third = (hand % 100) % 10
     return first, second, third
+
+#reference: https://github.com/Chiver/15-112-Fundamentals-of-Programming/blob/master/hw1_Version2.py
